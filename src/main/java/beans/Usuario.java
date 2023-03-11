@@ -19,12 +19,99 @@ public class Usuario {
     private String nacionalidad;
     private String alias;
     private String telefono;
-    private String rol;
+    private Rol rol;
     private String foto;
             
     
-    public void setCorreo(){
-    
+    public Usuario(String correo,String nombre,String apellido,String password,String DPI,String fechaNac,
+            char genero,String nacionalidad, String alias,String telefono,Rol rol,String foto){
+        this.correo = correo;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.password = password;
+        this.DPI = DPI;
+        this.fechaNac = fechaNac;
+        this.genero = genero;
+        this.nacionalidad = nacionalidad;
+        this.alias = alias;
+        this.telefono = telefono;
+        this.rol = rol;
+        this.foto = foto;
     }
     
+    //SETS
+    public void setCorreo(String correo){
+        this.correo = correo;
+    }
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+    public void setApellido(String apellido){
+        this.apellido = apellido;
+    }
+    public void setPassword(String password){
+        this.password = password;
+    }
+    public void setDPI(String DPI){
+        this.DPI = DPI;
+    }
+    public void setFecha(String fechaNac){
+        this.fechaNac = fechaNac;
+    }
+    public void setGenero(char genero){
+        this.genero = genero;
+    }
+    public void setNacionalidad(String nacionalidad){
+        this.nacionalidad = nacionalidad;
+    }
+    public void setAlias(String alias){
+        this.alias = alias;
+    }
+    public void setTelefono(String telefono){
+        this.telefono = telefono;
+    }
+    public void setRol(Rol rol){
+        this.rol = rol;
+    }
+    public void setFoto(String foto){
+        this.foto = foto;
+    }
+    
+    //GETS         
+    public String getCorreo(){
+        return this.correo;
+    }
+    public String getNombre(){
+        return this.nombre;
+    }
+    public String getApellido(){
+        return this.apellido;
+    }
+    public String getPassword(){
+        return this.password;
+    }
+    public String getDPI(){
+        return this.DPI;
+    }
+    public String getFechaNac(){
+        return this.fechaNac;
+    }
+    public char getGenero(){
+        return this.genero;
+    }
+    public String getNacionalidad(){
+        return this.nacionalidad;
+    }
+    public String getAlias(){
+        return this.alias;
+    }
+    public String getTelefono(){
+        return this.telefono;
+    }
+    public Rol getTRol(){
+        return this.rol;
+    }
+    public String getFoto(){
+        return this.foto;
+    }
 }

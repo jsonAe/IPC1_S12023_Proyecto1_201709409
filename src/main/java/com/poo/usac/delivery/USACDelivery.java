@@ -4,6 +4,8 @@
 
 package com.poo.usac.delivery;
 
+import views.Login;
+
 /**
  *
  * @author jeiso
@@ -11,6 +13,10 @@ package com.poo.usac.delivery;
 public class USACDelivery {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Login login = new Login();
+        
+        login.setVisible(true);
+        System.out.println("Hello word");
+        
     }
 }
