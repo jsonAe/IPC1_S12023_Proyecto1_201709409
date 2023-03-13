@@ -30,8 +30,8 @@ public class RegistroUsuario {
         listaRol = new  ArrayList<Rol>();
         listaNacionalidad = new  ArrayList<String>();
         
-        listaUsuarios.add(new Usuario("ipc1_201709409@ipc1delivery.com", "Jeison", "Estrada", 
-                "201709409", "2780349770101", "31/08/1995", "M", "Guatemalteco", 
+        listaUsuarios.add(new Usuario("1", "Jeison", "Estrada", 
+                "1", "2780349770101", "31/08/1995", "M", "Guatemalteco", 
                 "Json", "45872050", "Administrador", ""));
         
         
