@@ -30,6 +30,11 @@ public class RegistroUsuario {
         listaRol = new  ArrayList<Rol>();
         listaNacionalidad = new  ArrayList<String>();
         
+        listaUsuarios.add(new Usuario("ipc1_201709409@ipc1delivery.com", "Jeison", "Estrada", 
+                "201709409", "2780349770101", "31/08/1995", "M", "Guatemalteco", 
+                "Json", "45872050", "Administrador", ""));
+        
+        
         listaRol.add(new Rol(0,"Usuario individual"));
         listaRol.add(new Rol(1,"Usuario empresarial"));
         listaRol.add(new Rol(2,"Kiosko"));
@@ -56,6 +61,9 @@ public class RegistroUsuario {
     }
     public ArrayList<String> obtenerListaNacionalidad(){
         return this.listaNacionalidad;
+    }
+    public ArrayList<Usuario> obtenerListaUsuarios(){
+        return this.listaUsuarios;
     }
     public boolean validarPassword(String texto){
         // Verificar si contiene letras mayúsculas
