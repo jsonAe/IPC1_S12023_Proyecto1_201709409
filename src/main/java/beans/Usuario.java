@@ -15,16 +15,16 @@ public class Usuario {
     private String password;
     private String DPI;
     private String fechaNac;
-    private char genero;
+    private String genero;
     private String nacionalidad;
     private String alias;
     private String telefono;
-    private Rol rol;
+    private String rol;
     private String foto;
             
     
     public Usuario(String correo,String nombre,String apellido,String password,String DPI,String fechaNac,
-            char genero,String nacionalidad, String alias,String telefono,Rol rol,String foto){
+            String genero,String nacionalidad, String alias,String telefono,String rol,String foto){
         this.correo = correo;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -58,7 +58,7 @@ public class Usuario {
     public void setFecha(String fechaNac){
         this.fechaNac = fechaNac;
     }
-    public void setGenero(char genero){
+    public void setGenero(String genero){
         this.genero = genero;
     }
     public void setNacionalidad(String nacionalidad){
@@ -70,7 +70,7 @@ public class Usuario {
     public void setTelefono(String telefono){
         this.telefono = telefono;
     }
-    public void setRol(Rol rol){
+    public void setRol(String rol){
         this.rol = rol;
     }
     public void setFoto(String foto){
@@ -96,7 +96,7 @@ public class Usuario {
     public String getFechaNac(){
         return this.fechaNac;
     }
-    public char getGenero(){
+    public String getGenero(){
         return this.genero;
     }
     public String getNacionalidad(){
@@ -108,7 +108,7 @@ public class Usuario {
     public String getTelefono(){
         return this.telefono;
     }
-    public Rol getTRol(){
+    public String getTRol(){
         return this.rol;
     }
     public String getFoto(){

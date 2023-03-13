@@ -42,7 +42,7 @@
                   <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabel3" max="32767" attributes="0"/>
-                      <Component id="jBtnIniciarSesion" max="32767" attributes="0"/>
+                      <Component id="jBtnRegistrarse" max="32767" attributes="0"/>
                       <Component id="jTextUsuario" max="32767" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                           <Component id="jLabel1" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
@@ -73,7 +73,7 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jBtnIniciarSesion1" min="-2" pref="47" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jBtnIniciarSesion" min="-2" pref="47" max="-2" attributes="0"/>
+                  <Component id="jBtnRegistrarse" min="-2" pref="47" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -103,7 +103,7 @@
             <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jBtnIniciarSesion">
+        <Component class="javax.swing.JButton" name="jBtnRegistrarse">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="0" type="rgb"/>
@@ -114,7 +114,7 @@
             <Property name="text" type="java.lang.String" value="Registrarse"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnIniciarSesionActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnRegistrarseActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
@@ -134,8 +134,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="282" max="-2" attributes="0"/>
+                      <Component id="jLabel4" min="-2" pref="122" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -158,7 +158,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Inicio de sesi&#xf3;n"/>
+                <Property name="text" type="java.lang.String" value="Delivery USAC"/>
               </Properties>
             </Component>
           </SubComponents>
