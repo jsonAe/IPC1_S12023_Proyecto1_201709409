@@ -32,6 +32,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" pref="148" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnGestionarRegiones" min="-2" pref="148" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -43,7 +45,10 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnCerrarSesion" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="146" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jButton1" alignment="3" min="-2" pref="146" max="-2" attributes="0"/>
+                  <Component id="btnGestionarRegiones" alignment="3" min="-2" pref="146" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="0" pref="308" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -111,6 +116,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnGestionarRegiones">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gestionar regiones"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGestionarRegionesActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
