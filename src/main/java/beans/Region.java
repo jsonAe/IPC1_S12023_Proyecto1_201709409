@@ -20,6 +20,9 @@ public class Region {
         this.precioEspecial = precioEspecial;
         this.precioEstandar = precioEstandar;
     }
+    public Region(){
+    
+    }
     
     public void setCodigo(String codigo){
         this.codigo = codigo;

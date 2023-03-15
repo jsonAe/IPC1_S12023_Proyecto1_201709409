@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package views;
-import beans.Usuario;
+import beans.*;
 import controller.*;
 
 import javax.swing.table.DefaultTableModel;
@@ -33,25 +33,19 @@ public class Gestion_Regiones extends javax.swing.JFrame {
         llenarTabla();
     }
      public void llenarTabla(){    
-        this.modeloDefault = new DefaultTableModel(new String[]{"Correo","Nombre","Apellido","Password","DPI","Fecha nac","Genero","Nacionalidad","Alias","Telefono","Rol"},
- RegistroUsuario.getInstancia().obtenerListaUsuarios().size());
-        tableUsuarios.setModel(modeloDefault);
-        TableModel modeloDatos = tableUsuarios.getModel();
+        this.modeloDefault = new DefaultTableModel(new String[]{"Codigo","Nombre","Precio estandard","Precio especial"},
+ Region_Controller.getInstancia().obtenerListaRegion().size());
+        tableRegiones.setModel(modeloDefault);
+        TableModel modeloDatos = tableRegiones.getModel();
         //modeloDefault.addRow(new Object[this.filas]);
         
-        for(int i = 0;i<=RegistroUsuario.getInstancia().obtenerListaUsuarios().size()-1;i++){
-            Usuario user = RegistroUsuario.getInstancia().obtenerListaUsuarios().get(i);
-            modeloDatos.setValueAt(user.getCorreo(), i, 0);
-            modeloDatos.setValueAt(user.getNombre(), i, 1);
-            modeloDatos.setValueAt(user.getApellido(), i, 2);
-            modeloDatos.setValueAt(user.getPassword(), i, 3);
-            modeloDatos.setValueAt(user.getDPI(), i, 4);
-            modeloDatos.setValueAt(user.getFechaNac(), i, 5);
-            modeloDatos.setValueAt(user.getGenero(), i, 6);
-            modeloDatos.setValueAt(user.getNacionalidad(), i, 7);
-            modeloDatos.setValueAt(user.getAlias(), i, 8);
-            modeloDatos.setValueAt(user.getTelefono(), i, 9);
-            modeloDatos.setValueAt(user.getRol(), i, 10);
+        for(int i = 0;i<=Region_Controller.getInstancia().obtenerListaRegion().size()-1;i++){
+            Region reg = Region_Controller.getInstancia().obtenerListaRegion().get(i);
+            modeloDatos.setValueAt(reg.getCodigo(), i, 0);
+            modeloDatos.setValueAt(reg.getNombre(), i, 1);
+            modeloDatos.setValueAt(reg.getPrecioEstandar(), i, 2);
+            modeloDatos.setValueAt(reg.getPrecioEspecial(), i, 3);
+            
         }
     }
 
@@ -67,7 +61,7 @@ public class Gestion_Regiones extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableUsuarios = new javax.swing.JTable();
+        tableRegiones = new javax.swing.JTable();
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnRegistrarUsuario = new javax.swing.JButton();
@@ -98,7 +92,7 @@ public class Gestion_Regiones extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+        tableRegiones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -117,7 +111,7 @@ public class Gestion_Regiones extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tableUsuarios);
+        jScrollPane1.setViewportView(tableRegiones);
 
         btnEditar.setBackground(new java.awt.Color(0, 204, 204));
         btnEditar.setForeground(new java.awt.Color(255, 255, 255));
@@ -200,41 +194,35 @@ public class Gestion_Regiones extends javax.swing.JFrame {
 
     private void btnRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarUsuarioActionPerformed
         // TODO add your handling code here:
-        Registrar ventanaRegistrar = new Registrar();
-        ventanaRegistrar.ocultarBotonEdit();
-        ventanaRegistrar.setVisible(true);
+        Agregar_Region ventanaAgregarReg = new Agregar_Region();
+        ventanaAgregarReg.ocultarBotonEdit();
+        ventanaAgregarReg.setVisible(true);
         dispose();
         
     }//GEN-LAST:event_btnRegistrarUsuarioActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        String dpi = (String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 4);
-        RegistroUsuario.getInstancia().eliminarUsuario(dpi);
+        String codigoReg = (String)tableRegiones.getModel().getValueAt(tableRegiones.getSelectedRow(), 0);
+        Region_Controller.getInstancia().eliminarRegion(codigoReg);
         llenarTabla();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
         
-        Registrar ventanaRegistrar = new Registrar();
-        Usuario userEdit = new Usuario();
+        Agregar_Region ventanaAgregarReg = new Agregar_Region();
+        Region regionEdit = new Region();
         
-        userEdit.setCorreo((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 0));
-        userEdit.setNombre((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 1));
-        userEdit.setApellido((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 2));
-        userEdit.setPassword((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 3));
-        userEdit.setDPI((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 4));
-        userEdit.setFecha((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 5));
-        userEdit.setGenero((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 6));
-        userEdit.setNacionalidad((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 7));
-        userEdit.setAlias((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 8));
-        userEdit.setTelefono((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 9));
-        userEdit.setRol((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 10));
+        regionEdit.setCodigo((String)tableRegiones.getModel().getValueAt(tableRegiones.getSelectedRow(), 0));
+        regionEdit.setNombre((String)tableRegiones.getModel().getValueAt(tableRegiones.getSelectedRow(), 1));
+        regionEdit.setPrecioEstandar((double)tableRegiones.getModel().getValueAt(tableRegiones.getSelectedRow(), 2));
+        regionEdit.setPrecioEstandar((double)tableRegiones.getModel().getValueAt(tableRegiones.getSelectedRow(), 3));
+        
         //Ocultar boton Registrar y mostrar boton Editar
 
-        ventanaRegistrar.setVisible(true);
-        ventanaRegistrar.cargarCamposEditar(userEdit,tableUsuarios.getSelectedRow());
+        ventanaAgregarReg.setVisible(true);
+        ventanaAgregarReg.cargarCamposEditar(regionEdit,tableRegiones.getSelectedRow());
         dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 
@@ -295,6 +283,6 @@ public class Gestion_Regiones extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tableUsuarios;
+    private javax.swing.JTable tableRegiones;
     // End of variables declaration//GEN-END:variables
 }

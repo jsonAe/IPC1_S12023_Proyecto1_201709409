@@ -5,11 +5,13 @@
 package views;
 
 
+import beans.Region;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import controller.RegistroUsuario;
-import beans.Rol;
-import beans.Usuario;
+import beans.*;
+import controller.Region_Controller;
+
 
 /**
  *
@@ -22,9 +24,6 @@ public int filaTablaSelect;
      */
     public Agregar_Region() {
         initComponents();
-        cargarComboRol();
-        cargarComboNacionalidad();
-        jLblMensajePassword.setVisible(false); 
         btnEditar.setVisible(false);
         btnRegistrar.setVisible(false);
        
@@ -42,13 +41,13 @@ public int filaTablaSelect;
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTxtCorreo = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTxtNombre = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTxtPassword = new javax.swing.JTextField();
-        jTxtConfirmPassword = new javax.swing.JTextField();
+        txtPrecioEstandar = new javax.swing.JTextField();
+        txtPrecioEspecial = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
@@ -125,8 +124,8 @@ public int filaTablaSelect;
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTxtCorreo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                        .addComponent(jTxtNombre, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addComponent(txtCodigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -134,10 +133,10 @@ public int filaTablaSelect;
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtPrecioEstandar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTxtConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPrecioEspecial, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel6)))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -148,11 +147,11 @@ public int filaTablaSelect;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(7, 7, 7)
-                .addComponent(jTxtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addGap(3, 3, 3)
-                .addComponent(jTxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -161,8 +160,8 @@ public int filaTablaSelect;
                     .addComponent(jLabel6))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTxtPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTxtConfirmPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPrecioEstandar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecioEspecial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -176,52 +175,33 @@ public int filaTablaSelect;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
-        //Valdar password
-        
-        
-        if(RegistroUsuario.getInstancia().validarPassword(jTxtPassword.getText())==false){
-            jLblMensajePassword.setVisible(true);
-        }else{
-            jLblMensajePassword.setVisible(false); 
-            //Crear usuario
-            Usuario user = new Usuario(jTxtCorreo.getText(), jTxtNombre.getText(), 
-                jTxtApellido.getText(), jTxtPassword.getText(), 
-                jTxtDPI.getText(), jTxtFechaNac.getText(),
-                (String)jCmbGenero.getSelectedItem(),(String)jCmbNacionalidad.getSelectedItem(), 
-                jTxtAlias.getText(), jTxtTelefono.getText(), 
-                (String)jCmbRol.getSelectedItem(), "d");
-            RegistroUsuario.getInstancia().agregarUsuario(user);
-            //Gestion_Usuarios.getInstancia().agregarUsuario(user);
-            //Limpiar campos despues de agregar un registro
+        // TODO add your handling code here:      
+            
+            
+            Region reg = new Region(txtCodigo.getText(), txtNombre.getText(), 
+                    Double.parseDouble(txtPrecioEspecial.getText()), 
+                    Double.parseDouble(txtPrecioEstandar.getText()));
+            
+            Region_Controller.getInstancia().agregarRegion(reg);
             lipiarCampos();
             
-            Gestion_Usuarios gestion = new Gestion_Usuarios();
-            gestion.llenarTabla();
-            gestion.setVisible(true);
-            dispose();
-        }
-        
-        
-        
-        
-        
+            Gestion_Regiones gestionReg = new Gestion_Regiones();
+            gestionReg.llenarTabla();
+            gestionReg.setVisible(true);
+            dispose();   
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-        Usuario user = new Usuario(jTxtCorreo.getText(), jTxtNombre.getText(), 
-                jTxtApellido.getText(), jTxtPassword.getText(), 
-                jTxtDPI.getText(), jTxtFechaNac.getText(),
-                (String)jCmbGenero.getSelectedItem(),(String)jCmbNacionalidad.getSelectedItem(), 
-                jTxtAlias.getText(), jTxtTelefono.getText(), 
-                (String)jCmbRol.getSelectedItem(), "d");
+        Region reg = new Region(txtCodigo.getText(), txtNombre.getText(), 
+                Double.parseDouble(txtPrecioEspecial.getText()), 
+                Double.parseDouble(txtPrecioEstandar.getText()));
         
-        RegistroUsuario.getInstancia().actualizarUsuario(user);
+        Region_Controller.getInstancia().actualizarRegion(reg);
         
-        Gestion_Usuarios gestion = new Gestion_Usuarios();
-        gestion.setVisible(true);
-        gestion.llenarTabla();
+        Gestion_Regiones gestionReg = new Gestion_Regiones();
+        gestionReg.setVisible(true);
+        gestionReg.llenarTabla();
         dispose();
         
         
@@ -230,46 +210,24 @@ public int filaTablaSelect;
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         dispose();
-        Gestion_Usuarios gestion = new Gestion_Usuarios();
-        gestion.setVisible(true);
+        Gestion_Regiones gestionReg = new Gestion_Regiones();
+        gestionReg.setVisible(true);
     }//GEN-LAST:event_btnCancelarActionPerformed
  
-    private void cargarComboRol(){
-        for(Rol rol:RegistroUsuario.getInstancia().obtenerListaRol()){
-            jCmbRol.addItem(rol.getNombreRol());
-        } 
-    }
-    private void cargarComboNacionalidad(){
-        for(String nac:RegistroUsuario.getInstancia().obtenerListaNacionalidad()){
-            jCmbNacionalidad.addItem(nac);
-        } 
-    }
     private void lipiarCampos(){
-        jTxtCorreo.setText("");
-        jTxtNombre.setText("");
-        jTxtApellido.setText("");
-        jTxtPassword.setText("");
-        jTxtConfirmPassword.setText("");
-        jTxtDPI.setText("");
-        jTxtFechaNac.setText("");
-        jTxtAlias.setText("");
-        jTxtTelefono.setText("");
+        txtCodigo.setText("");
+        txtNombre.setText("");
+        txtPrecioEspecial.setText("");
+        txtPrecioEstandar.setText("");
     }
-    public void cargarCamposEditar(Usuario user, int filaSelect){
+    public void cargarCamposEditar(Region region, int filaSelect){
         this.btnRegistrar.setVisible(false);
         this.btnEditar.setVisible(true);
         
-        this.jTxtCorreo.setText(user.getCorreo());
-        this.jTxtNombre.setText(user.getNombre());
-        this.jTxtApellido.setText(user.getApellido());
-        this.jTxtPassword.setText(user.getPassword());
-        this.jTxtDPI.setText(user.getDPI());
-        this.jTxtFechaNac.setText(user.getFechaNac());
-        this.jCmbGenero.setSelectedItem(user.getGenero());
-        this.jCmbNacionalidad.setSelectedItem(user.getNacionalidad());
-        this.jTxtAlias.setText(user.getAlias());
-        this.jTxtTelefono.setText(user.getTelefono());
-        this.jCmbRol.setSelectedItem(user.getRol());  
+        this.txtCodigo.setText(region.getCodigo());
+        this.txtNombre.setText(region.getNombre());
+        this.txtPrecioEstandar.setText(String.valueOf(region.getPrecioEstandar()));
+        this.txtPrecioEspecial.setText(String.valueOf(region.getPrecioEspecial()));
         this.filaTablaSelect = filaSelect;
     }
     public void ocultarBotonEdit(){
@@ -327,9 +285,9 @@ public int filaTablaSelect;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTxtConfirmPassword;
-    private javax.swing.JTextField jTxtCorreo;
-    private javax.swing.JTextField jTxtNombre;
-    private javax.swing.JTextField jTxtPassword;
+    private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtPrecioEspecial;
+    private javax.swing.JTextField txtPrecioEstandar;
     // End of variables declaration//GEN-END:variables
 }

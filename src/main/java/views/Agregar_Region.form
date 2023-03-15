@@ -30,8 +30,8 @@
                   <Component id="jLabel3" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jTxtCorreo" alignment="0" pref="244" max="32767" attributes="0"/>
-                      <Component id="jTxtNombre" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtCodigo" alignment="0" pref="244" max="32767" attributes="0"/>
+                      <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Component id="btnEditar" min="-2" pref="159" max="-2" attributes="0"/>
@@ -40,11 +40,11 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel5" min="-2" pref="90" max="-2" attributes="0"/>
-                              <Component id="jTxtPassword" min="-2" pref="114" max="-2" attributes="0"/>
+                              <Component id="txtPrecioEstandar" min="-2" pref="114" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTxtConfirmPassword" min="-2" pref="112" max="-2" attributes="0"/>
+                              <Component id="txtPrecioEspecial" min="-2" pref="112" max="-2" attributes="0"/>
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -61,11 +61,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-              <Component id="jTxtCorreo" min="-2" max="-2" attributes="0"/>
+              <Component id="txtCodigo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-              <Component id="jTxtNombre" min="-2" max="-2" attributes="0"/>
+              <Component id="txtNombre" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -76,8 +76,8 @@
               </Group>
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTxtPassword" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTxtConfirmPassword" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtPrecioEstandar" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtPrecioEspecial" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Component id="btnRegistrar" min="-2" pref="34" max="-2" attributes="0"/>
@@ -140,14 +140,14 @@
         <Property name="text" type="java.lang.String" value="Codigo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtCorreo">
+    <Component class="javax.swing.JTextField" name="txtCodigo">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtNombre">
+    <Component class="javax.swing.JTextField" name="txtNombre">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -159,9 +159,9 @@
         <Property name="text" type="java.lang.String" value="Precio especial"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtPassword">
+    <Component class="javax.swing.JTextField" name="txtPrecioEstandar">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtConfirmPassword">
+    <Component class="javax.swing.JTextField" name="txtPrecioEspecial">
     </Component>
     <Component class="javax.swing.JButton" name="btnCancelar">
       <Properties>
