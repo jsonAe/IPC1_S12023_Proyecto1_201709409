@@ -34,10 +34,10 @@ public class RegistroUsuario {
                 "1", "2780349770101", "31/08/1995", "M", "Guatemalteco", 
                 "Json", "45872050", "Administrador", ""));
         
-        
-        listaRol.add(new Rol(0,"Usuario individual"));
-        listaRol.add(new Rol(1,"Usuario empresarial"));
-        listaRol.add(new Rol(2,"Kiosko"));
+        listaRol.add(new Rol(0,"Administrador"));
+        listaRol.add(new Rol(1,"Usuario individual"));
+        listaRol.add(new Rol(2,"Usuario empresarial"));
+        listaRol.add(new Rol(3,"Kiosko"));
         
         listaNacionalidad.add("Guatemala");
         listaNacionalidad.add("El Salvador");
