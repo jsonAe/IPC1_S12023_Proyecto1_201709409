@@ -38,7 +38,9 @@ public class Usuario {
         this.rol = rol;
         this.foto = foto;
     }
+    public Usuario(){
     
+    }
     //SETS
     public void setCorreo(String correo){
         this.correo = correo;
@@ -108,7 +110,7 @@ public class Usuario {
     public String getTelefono(){
         return this.telefono;
     }
-    public String getTRol(){
+    public String getRol(){
         return this.rol;
     }
     public String getFoto(){

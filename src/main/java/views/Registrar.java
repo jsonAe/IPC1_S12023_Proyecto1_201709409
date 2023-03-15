@@ -16,7 +16,7 @@ import beans.Usuario;
  * @author jeiso
  */
 public class Registrar extends javax.swing.JFrame {
-
+public int filaTablaSelect;
     /**
      * Creates new form NewJFrame
      */
@@ -25,6 +25,9 @@ public class Registrar extends javax.swing.JFrame {
         cargarComboRol();
         cargarComboNacionalidad();
         jLblMensajePassword.setVisible(false); 
+        btnEditar.setVisible(false);
+        btnRegistrar.setVisible(false);
+       
     }
 
     /**
@@ -63,10 +66,11 @@ public class Registrar extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jTxtTelefono = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jBtnRegistrar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
         jCmbNacionalidad = new javax.swing.JComboBox<>();
         jLblMensajePassword = new javax.swing.JLabel();
+        btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -135,16 +139,21 @@ public class Registrar extends javax.swing.JFrame {
 
         jButton1.setText("Subir foto");
 
-        jButton2.setBackground(new java.awt.Color(255, 51, 0));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Cancelar");
-
-        jBtnRegistrar.setBackground(new java.awt.Color(0, 204, 102));
-        jBtnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
-        jBtnRegistrar.setText("Registrar");
-        jBtnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(255, 51, 0));
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnRegistrarActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
+            }
+        });
+
+        btnRegistrar.setBackground(new java.awt.Color(0, 204, 102));
+        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
             }
         });
 
@@ -153,6 +162,15 @@ public class Registrar extends javax.swing.JFrame {
         jLblMensajePassword.setMaximumSize(new java.awt.Dimension(489, 50));
         jLblMensajePassword.setMinimumSize(new java.awt.Dimension(489, 50));
         jLblMensajePassword.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+
+        btnEditar.setBackground(new java.awt.Color(0, 153, 153));
+        btnEditar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,7 +196,7 @@ public class Registrar extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jBtnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
@@ -209,17 +227,22 @@ public class Registrar extends javax.swing.JFrame {
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jCmbNacionalidad, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTxtFechaNac, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)))
-                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jButton1))
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32))
+                        .addGap(49, 49, 49)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jButton1))
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -296,8 +319,9 @@ public class Registrar extends javax.swing.JFrame {
                         .addComponent(jCmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24))
         );
 
@@ -306,7 +330,7 @@ public class Registrar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBtnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnRegistrarActionPerformed
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
         //Valdar password
         
@@ -323,16 +347,48 @@ public class Registrar extends javax.swing.JFrame {
                 jTxtAlias.getText(), jTxtTelefono.getText(), 
                 (String)jCmbRol.getSelectedItem(), "d");
             RegistroUsuario.getInstancia().agregarUsuario(user);
+            //Gestion_Usuarios.getInstancia().agregarUsuario(user);
             //Limpiar campos despues de agregar un registro
             lipiarCampos();
+            
+            Gestion_Usuarios gestion = new Gestion_Usuarios();
+            gestion.llenarTabla();
+            gestion.setVisible(true);
+            dispose();
         }
         
         
         
         
         
-    }//GEN-LAST:event_jBtnRegistrarActionPerformed
-    
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+        Usuario user = new Usuario(jTxtCorreo.getText(), jTxtNombre.getText(), 
+                jTxtApellido.getText(), jTxtPassword.getText(), 
+                jTxtDPI.getText(), jTxtFechaNac.getText(),
+                (String)jCmbGenero.getSelectedItem(),(String)jCmbNacionalidad.getSelectedItem(), 
+                jTxtAlias.getText(), jTxtTelefono.getText(), 
+                (String)jCmbRol.getSelectedItem(), "d");
+        
+        RegistroUsuario.getInstancia().actualizarUsuario(user);
+        
+        Gestion_Usuarios gestion = new Gestion_Usuarios();
+        gestion.setVisible(true);
+        gestion.llenarTabla();
+        dispose();
+        
+        
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        Gestion_Usuarios gestion = new Gestion_Usuarios();
+        gestion.setVisible(true);
+    }//GEN-LAST:event_btnCancelarActionPerformed
+ 
     private void cargarComboRol(){
         for(Rol rol:RegistroUsuario.getInstancia().obtenerListaRol()){
             jCmbRol.addItem(rol.getNombreRol());
@@ -343,7 +399,6 @@ public class Registrar extends javax.swing.JFrame {
             jCmbNacionalidad.addItem(nac);
         } 
     }
-    
     private void lipiarCampos(){
         jTxtCorreo.setText("");
         jTxtNombre.setText("");
@@ -355,7 +410,27 @@ public class Registrar extends javax.swing.JFrame {
         jTxtAlias.setText("");
         jTxtTelefono.setText("");
     }
-    
+    public void cargarCamposEditar(Usuario user, int filaSelect){
+        this.btnRegistrar.setVisible(false);
+        this.btnEditar.setVisible(true);
+        
+        this.jTxtCorreo.setText(user.getCorreo());
+        this.jTxtNombre.setText(user.getNombre());
+        this.jTxtApellido.setText(user.getApellido());
+        this.jTxtPassword.setText(user.getPassword());
+        this.jTxtDPI.setText(user.getDPI());
+        this.jTxtFechaNac.setText(user.getFechaNac());
+        this.jCmbGenero.setSelectedItem(user.getGenero());
+        this.jCmbNacionalidad.setSelectedItem(user.getNacionalidad());
+        this.jTxtAlias.setText(user.getAlias());
+        this.jTxtTelefono.setText(user.getTelefono());
+        this.jCmbRol.setSelectedItem(user.getRol());  
+        this.filaTablaSelect = filaSelect;
+    }
+    public void ocultarBotonEdit(){
+        this.btnRegistrar.setVisible(true);
+        this.btnEditar.setVisible(false);
+    }
     
     
     
@@ -396,9 +471,10 @@ public class Registrar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnRegistrar;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jCmbGenero;
     private javax.swing.JComboBox<String> jCmbNacionalidad;
     private javax.swing.JComboBox<String> jCmbRol;

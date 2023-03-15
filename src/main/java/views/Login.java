@@ -32,7 +32,6 @@ public class Login extends javax.swing.JFrame {
         jTxtPassword = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jBtnRegistrarse = new javax.swing.JButton();
         jLblMensajeError = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -51,15 +50,6 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Password");
-
-        jBtnRegistrarse.setBackground(new java.awt.Color(0, 153, 153));
-        jBtnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
-        jBtnRegistrarse.setText("Registrarse");
-        jBtnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnRegistrarseActionPerformed(evt);
-            }
-        });
 
         jLblMensajeError.setForeground(new java.awt.Color(255, 51, 0));
         jLblMensajeError.setText("El usuario o contraseña son incorrectos");
@@ -104,7 +94,6 @@ public class Login extends javax.swing.JFrame {
                 .addGap(205, 205, 205)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLblMensajeError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBtnRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTxtUsuario)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,9 +119,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLblMensajeError, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBtnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBtnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addGap(75, 75, 75))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -149,13 +136,6 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBtnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnRegistrarseActionPerformed
-        // TODO add your handling code here:
-        Registrar ventanaRegistrar = new Registrar();
-        ventanaRegistrar.setVisible(true);
-        
-    }//GEN-LAST:event_jBtnRegistrarseActionPerformed
-
     private void jTxtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtUsuarioActionPerformed
@@ -163,9 +143,12 @@ public class Login extends javax.swing.JFrame {
     private void jBtnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIniciarSesionActionPerformed
         // TODO add your handling code here:
         if(Atenticacion.getInstancia().autenticarUsuario(jTxtUsuario.getText(), jTxtPassword.getText()) == true){
+            
+            
             Administrador_Inicio vistaAdmin = new Administrador_Inicio();
             vistaAdmin.setVisible(true);
             jLblMensajeError.setVisible(false);
+            dispose();
         }else{
             jLblMensajeError.setVisible(true);
         }
@@ -208,7 +191,6 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnIniciarSesion;
-    private javax.swing.JButton jBtnRegistrarse;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

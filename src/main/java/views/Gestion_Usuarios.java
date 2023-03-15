@@ -1,20 +1,58 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package views;
+import beans.Usuario;
+import controller.*;
 
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 /**
  *
  * @author jeiso
  */
-public class Gestion_Usuarios extends javax.swing.JPanel {
-
+public class Gestion_Usuarios extends javax.swing.JFrame {
+    public int filas =0;
+    public DefaultTableModel modeloDefault;
+    
+    private static Gestion_Usuarios instancia;
     /**
      * Creates new form Gestion_Usuarios
      */
+    
+     public static Gestion_Usuarios getInstancia() {
+        if (instancia == null) {
+            instancia = new Gestion_Usuarios();
+        }
+        return instancia;
+    }
+    
     public Gestion_Usuarios() {
         initComponents();
+        llenarTabla();
+    }
+     public void llenarTabla(){    
+        this.modeloDefault = new DefaultTableModel(new String[]{"Correo","Nombre","Apellido","Password","DPI","Fecha nac","Genero","Nacionalidad","Alias","Telefono","Rol"},
+ RegistroUsuario.getInstancia().obtenerListaUsuarios().size());
+        tableUsuarios.setModel(modeloDefault);
+        TableModel modeloDatos = tableUsuarios.getModel();
+        //modeloDefault.addRow(new Object[this.filas]);
+        
+        for(int i = 0;i<=RegistroUsuario.getInstancia().obtenerListaUsuarios().size()-1;i++){
+            Usuario user = RegistroUsuario.getInstancia().obtenerListaUsuarios().get(i);
+            modeloDatos.setValueAt(user.getCorreo(), i, 0);
+            modeloDatos.setValueAt(user.getNombre(), i, 1);
+            modeloDatos.setValueAt(user.getApellido(), i, 2);
+            modeloDatos.setValueAt(user.getPassword(), i, 3);
+            modeloDatos.setValueAt(user.getDPI(), i, 4);
+            modeloDatos.setValueAt(user.getFechaNac(), i, 5);
+            modeloDatos.setValueAt(user.getGenero(), i, 6);
+            modeloDatos.setValueAt(user.getNacionalidad(), i, 7);
+            modeloDatos.setValueAt(user.getAlias(), i, 8);
+            modeloDatos.setValueAt(user.getTelefono(), i, 9);
+            modeloDatos.setValueAt(user.getRol(), i, 10);
+        }
     }
 
     /**
@@ -28,6 +66,14 @@ public class Gestion_Usuarios extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableUsuarios = new javax.swing.JTable();
+        btnEditar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnRegistrarUsuario = new javax.swing.JButton();
+        btnAtras = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 0));
 
@@ -42,7 +88,7 @@ public class Gestion_Usuarios extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(310, 310, 310)
                 .addComponent(jLabel1)
-                .addContainerGap(329, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -52,23 +98,197 @@ public class Gestion_Usuarios extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        tableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Correo", "Nombre", "Apellido", "Password", "DPI", "Fecha nac", "Genero", "Nacionalidad", "Alias", "Telefono", "Rol"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tableUsuarios);
+
+        btnEditar.setBackground(new java.awt.Color(0, 204, 204));
+        btnEditar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditar.setText("Editar usuario");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setBackground(new java.awt.Color(255, 51, 0));
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setText("Eliminar usuario");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        btnRegistrarUsuario.setBackground(new java.awt.Color(0, 204, 102));
+        btnRegistrarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarUsuario.setText("Registrar usuario");
+        btnRegistrarUsuario.setActionCommand("Registrarr usuario");
+        btnRegistrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarUsuarioActionPerformed(evt);
+            }
+        });
+
+        btnAtras.setText("Atras");
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(btnRegistrarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 16, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnAtras)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 486, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAtras)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegistrarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarUsuarioActionPerformed
+        // TODO add your handling code here:
+        Registrar ventanaRegistrar = new Registrar();
+        ventanaRegistrar.ocultarBotonEdit();
+        ventanaRegistrar.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_btnRegistrarUsuarioActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        String dpi = (String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 4);
+        RegistroUsuario.getInstancia().eliminarUsuario(dpi);
+        llenarTabla();
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+        
+        Registrar ventanaRegistrar = new Registrar();
+        Usuario userEdit = new Usuario();
+        
+        userEdit.setCorreo((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 0));
+        userEdit.setNombre((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 1));
+        userEdit.setApellido((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 2));
+        userEdit.setPassword((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 3));
+        userEdit.setDPI((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 4));
+        userEdit.setFecha((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 5));
+        userEdit.setGenero((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 6));
+        userEdit.setNacionalidad((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 7));
+        userEdit.setAlias((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 8));
+        userEdit.setTelefono((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 9));
+        userEdit.setRol((String)tableUsuarios.getModel().getValueAt(tableUsuarios.getSelectedRow(), 10));
+        //Ocultar boton Registrar y mostrar boton Editar
+
+        ventanaRegistrar.setVisible(true);
+        ventanaRegistrar.cargarCamposEditar(userEdit,tableUsuarios.getSelectedRow());
+        dispose();
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        // TODO add your handling code here:
+        Administrador_Inicio vistaAdmin = new Administrador_Inicio();
+        vistaAdmin.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnAtrasActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Gestion_Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Gestion_Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Gestion_Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Gestion_Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Gestion_Usuarios().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtras;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnRegistrarUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tableUsuarios;
     // End of variables declaration//GEN-END:variables
 }
