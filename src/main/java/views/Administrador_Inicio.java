@@ -31,6 +31,7 @@ public class Administrador_Inicio extends javax.swing.JFrame {
         btnCerrarSesion = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         btnGestionarRegiones = new javax.swing.JButton();
+        btnGestionarDep = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,6 +81,13 @@ public class Administrador_Inicio extends javax.swing.JFrame {
             }
         });
 
+        btnGestionarDep.setText("Gestionar Departamentos");
+        btnGestionarDep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarDepActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,6 +102,8 @@ public class Administrador_Inicio extends javax.swing.JFrame {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnGestionarRegiones, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnGestionarDep, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -105,7 +115,8 @@ public class Administrador_Inicio extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGestionarRegiones, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnGestionarRegiones, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGestionarDep, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 308, Short.MAX_VALUE))
         );
 
@@ -134,6 +145,13 @@ public class Administrador_Inicio extends javax.swing.JFrame {
         gestionReg.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnGestionarRegionesActionPerformed
+
+    private void btnGestionarDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarDepActionPerformed
+        // TODO add your handling code here:
+        Gestion_Departamentos gestionDep = new Gestion_Departamentos();
+        gestionDep.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnGestionarDepActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,6 +190,7 @@ public class Administrador_Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSesion;
+    private javax.swing.JButton btnGestionarDep;
     private javax.swing.JButton btnGestionarRegiones;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

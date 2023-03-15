@@ -18,6 +18,9 @@ public class Departamento {
         this.nombreDepartamento = nombreDepartamento;
         this.codigoRegion = codigoRegion;
     }
+    public Departamento(){
+    
+    }
     
     public void setCodigoDep(String codigoDepartamento){
         this.codigoDepartamento = codigoDepartamento;
