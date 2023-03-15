@@ -34,7 +34,7 @@ public class Municipio_Controller {
     }
     public void eliminarMunicipio(String codigoMuni){
         for(Municipio muni :listaMunicipio) {
-            if(muni.getCodigoDep().equals(codigoMuni)){
+            if(muni.getCodigoMuni().equals(codigoMuni)){
                 listaMunicipio.remove(muni);
                 break;
             }
@@ -49,7 +49,7 @@ public class Municipio_Controller {
             }
         }  
     }
-    public ArrayList<Municipio> obtenerListaDepartamento(){
+    public ArrayList<Municipio> obtenerListaMunicipios(){
         return this.listaMunicipio;
     }
 }

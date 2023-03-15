@@ -18,7 +18,9 @@ public class Municipio {
         this.nombreMuni = nombreMuni;
         this.codigoDep = codigoDep;
     }
+    public Municipio(){
     
+    }
     public void setCodigoMuni(String codigoMuni){
         this.codigoMuni = codigoMuni;
     }

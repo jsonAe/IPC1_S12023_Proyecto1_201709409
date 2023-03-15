@@ -29,18 +29,15 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel3" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="txtCodigoDep" alignment="0" pref="244" max="32767" attributes="0"/>
+                      <Component id="txtCodigoMuni" alignment="0" pref="244" max="32767" attributes="0"/>
                       <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Component id="btnEditar" min="-2" pref="159" max="-2" attributes="0"/>
                       <Component id="btnCancelar" min="-2" pref="159" max="-2" attributes="0"/>
                       <Component id="btnRegistrar" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel5" min="-2" pref="90" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="txtCodigoRegion" max="32767" attributes="0"/>
+                      <Component id="txtCodigoDepartamento" min="-2" pref="244" max="-2" attributes="0"/>
+                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jLabel2" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
               </Group>
@@ -55,7 +52,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-              <Component id="txtCodigoDep" min="-2" max="-2" attributes="0"/>
+              <Component id="txtCodigoMuni" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
@@ -63,7 +60,7 @@
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-              <Component id="txtCodigoRegion" min="-2" max="-2" attributes="0"/>
+              <Component id="txtCodigoDepartamento" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Component id="btnRegistrar" min="-2" pref="34" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -115,17 +112,17 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Agregar departamento"/>
+            <Property name="text" type="java.lang.String" value="Agregar municipio"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Codigo departamento"/>
+        <Property name="text" type="java.lang.String" value="Codigo municipio"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCodigoDep">
+    <Component class="javax.swing.JTextField" name="txtCodigoMuni">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -136,10 +133,10 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Codigo  region"/>
+        <Property name="text" type="java.lang.String" value="Codigo  departamento"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCodigoRegion">
+    <Component class="javax.swing.JTextField" name="txtCodigoDepartamento">
     </Component>
     <Component class="javax.swing.JButton" name="btnCancelar">
       <Properties>

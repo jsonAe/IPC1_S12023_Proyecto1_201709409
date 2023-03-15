@@ -35,16 +35,16 @@ public class Gestion_Municipios extends javax.swing.JFrame {
      public void llenarTabla(){    
         this.modeloDefault = new DefaultTableModel(new String[]{"Codigo muni","Nombre muni","Codigo dep"},
                 
- Municipio_Controller.getInstancia().obtenerListaDepartamento().size());
+ Municipio_Controller.getInstancia().obtenerListaMunicipios().size());
         tableMunicipios.setModel(modeloDefault);
         TableModel modeloDatos = tableMunicipios.getModel();
         //modeloDefault.addRow(new Object[this.filas]);
         
-        for(int i = 0;i<=Departamento_Controller.getInstancia().obtenerListaDepartamento().size()-1;i++){
-            Departamento dep = Departamento_Controller.getInstancia().obtenerListaDepartamento().get(i);
-            modeloDatos.setValueAt(dep.getCodigoDep(), i, 0);
-            modeloDatos.setValueAt(dep.getNombreDep(), i, 1);
-            modeloDatos.setValueAt(dep.getCodigoReg(), i, 2);
+        for(int i = 0;i<=Municipio_Controller.getInstancia().obtenerListaMunicipios().size()-1;i++){
+            Municipio muni = Municipio_Controller.getInstancia().obtenerListaMunicipios().get(i);
+            modeloDatos.setValueAt(muni.getCodigoMuni(), i, 0);
+            modeloDatos.setValueAt(muni.getNombreMuni(), i, 1);
+            modeloDatos.setValueAt(muni.getCodigoDep(), i, 2);
    
         }
     }
@@ -194,35 +194,35 @@ public class Gestion_Municipios extends javax.swing.JFrame {
 
     private void btnRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarUsuarioActionPerformed
         // TODO add your handling code here:
-        Agregar_Departamento ventanaAgregaDep = new Agregar_Departamento();
-        ventanaAgregaDep.ocultarBotonEdit();
-        ventanaAgregaDep.setVisible(true);
+        Agregar_Municipio ventanaAgregarMuni = new Agregar_Municipio();
+        ventanaAgregarMuni.ocultarBotonEdit();
+        ventanaAgregarMuni.setVisible(true);
         dispose();
         
     }//GEN-LAST:event_btnRegistrarUsuarioActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        String codigoDep = (String)tableMunicipios.getModel().getValueAt(tableMunicipios.getSelectedRow(), 0);
-        Departamento_Controller.getInstancia().eliminarDepartamento(codigoDep);
+        String codigoMuni = (String)tableMunicipios.getModel().getValueAt(tableMunicipios.getSelectedRow(), 0);
+        Municipio_Controller.getInstancia().eliminarMunicipio(codigoMuni);
         llenarTabla();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
         
-        Agregar_Departamento ventanaAgregarDep = new Agregar_Departamento();
-        Departamento depEdit = new Departamento();
+        Agregar_Municipio ventanaAgregarMuni = new Agregar_Municipio();
+        Municipio muniEdit = new Municipio();
         
-        depEdit.setCodigoDep((String)tableMunicipios.getModel().getValueAt(tableMunicipios.getSelectedRow(), 0));
-        depEdit.setNombreDep((String)tableMunicipios.getModel().getValueAt(tableMunicipios.getSelectedRow(), 1));
-        depEdit.setCodigoRegion((String)tableMunicipios.getModel().getValueAt(tableMunicipios.getSelectedRow(), 2));
+        muniEdit.setCodigoMuni((String)tableMunicipios.getModel().getValueAt(tableMunicipios.getSelectedRow(), 0));
+        muniEdit.setNombreMuni((String)tableMunicipios.getModel().getValueAt(tableMunicipios.getSelectedRow(), 1));
+        muniEdit.setCodigoDep((String)tableMunicipios.getModel().getValueAt(tableMunicipios.getSelectedRow(), 2));
         
         
         //Ocultar boton Registrar y mostrar boton Editar
 
-        ventanaAgregarDep.setVisible(true);
-        ventanaAgregarDep.cargarCamposEditar(depEdit,tableMunicipios.getSelectedRow());
+        ventanaAgregarMuni.setVisible(true);
+        ventanaAgregarMuni.cargarCamposEditar(muniEdit,tableMunicipios.getSelectedRow());
         dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 

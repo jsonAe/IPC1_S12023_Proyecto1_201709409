@@ -10,19 +10,19 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import controller.RegistroUsuario;
 import beans.*;
-import controller.Departamento_Controller;
+import controller.Municipio_Controller;
 
 
 /**
  *
  * @author jeiso
  */
-public class Agregar_Departamento extends javax.swing.JFrame {
+public class Agregar_Municipio extends javax.swing.JFrame {
 public int filaTablaSelect;
     /**
      * Creates new form NewJFrame
      */
-    public Agregar_Departamento() {
+    public Agregar_Municipio() {
         initComponents();
         btnEditar.setVisible(false);
         btnRegistrar.setVisible(false);
@@ -41,11 +41,11 @@ public int filaTablaSelect;
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtCodigoDep = new javax.swing.JTextField();
+        txtCodigoMuni = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtCodigoRegion = new javax.swing.JTextField();
+        txtCodigoDepartamento = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
@@ -57,7 +57,7 @@ public int filaTablaSelect;
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Agregar departamento");
+        jLabel1.setText("Agregar municipio");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -76,11 +76,11 @@ public int filaTablaSelect;
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel2.setText("Codigo departamento");
+        jLabel2.setText("Codigo municipio");
 
         jLabel3.setText("Nombre");
 
-        jLabel5.setText("Codigo  region");
+        jLabel5.setText("Codigo  departamento");
 
         btnCancelar.setBackground(new java.awt.Color(255, 51, 0));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,16 +119,14 @@ public int filaTablaSelect;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtCodigoDep, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                        .addComponent(txtCodigoMuni, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
                         .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(154, 154, 154))
-                        .addComponent(txtCodigoRegion))
+                        .addComponent(txtCodigoDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING))
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -139,7 +137,7 @@ public int filaTablaSelect;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(7, 7, 7)
-                .addComponent(txtCodigoDep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCodigoMuni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addGap(3, 3, 3)
@@ -147,7 +145,7 @@ public int filaTablaSelect;
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addGap(9, 9, 9)
-                .addComponent(txtCodigoRegion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCodigoDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -164,26 +162,26 @@ public int filaTablaSelect;
         // TODO add your handling code here:      
             
             
-            Departamento dep = new Departamento(txtCodigoDep.getText(), txtNombre.getText(), txtCodigoRegion.getText());
+            Municipio muni = new Municipio(txtCodigoMuni.getText(), txtNombre.getText(), txtCodigoDepartamento.getText());
             
-            Departamento_Controller.getInstancia().agregarDepartamento(dep);
+            Municipio_Controller.getInstancia().agregarMunicipio(muni);
             lipiarCampos();
             
-            Gestion_Departamentos gestionDep = new Gestion_Departamentos();
-            gestionDep.llenarTabla();
-            gestionDep.setVisible(true);
+            Gestion_Municipios gestionMuni = new Gestion_Municipios();
+            gestionMuni.llenarTabla();
+            gestionMuni.setVisible(true);
             dispose();   
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-        Departamento dep = new Departamento(txtCodigoDep.getText(), txtNombre.getText(), txtCodigoRegion.getText());
+        Municipio muni = new Municipio(txtCodigoMuni.getText(), txtNombre.getText(), txtCodigoDepartamento.getText());
         
-        Departamento_Controller.getInstancia().actualizarDepartamento(dep);
+        Municipio_Controller.getInstancia().actualizarMunicipio(muni);
         
-        Gestion_Departamentos gestionDep = new Gestion_Departamentos();
-        gestionDep.setVisible(true);
-        gestionDep.llenarTabla();
+        Gestion_Municipios gestionMuni = new Gestion_Municipios();
+        gestionMuni.setVisible(true);
+        gestionMuni.llenarTabla();
         dispose();
         
         
@@ -192,22 +190,22 @@ public int filaTablaSelect;
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         dispose();
-        Gestion_Departamentos gestionDep = new Gestion_Departamentos();
-        gestionDep.setVisible(true);
+        Gestion_Municipios gestionMuni = new Gestion_Municipios();
+        gestionMuni.setVisible(true);
     }//GEN-LAST:event_btnCancelarActionPerformed
  
     private void lipiarCampos(){
-        txtCodigoDep.setText("");
+        txtCodigoMuni.setText("");
         txtNombre.setText("");
-        txtCodigoRegion.setText("");
+        txtCodigoDepartamento.setText("");
     }
-    public void cargarCamposEditar(Departamento dep, int filaSelect){
+    public void cargarCamposEditar(Municipio muni, int filaSelect){
         this.btnRegistrar.setVisible(false);
         this.btnEditar.setVisible(true);
         
-        this.txtCodigoDep.setText(dep.getCodigoDep());
-        this.txtNombre.setText(dep.getNombreDep());
-        this.txtCodigoRegion.setText(String.valueOf(dep.getCodigoReg()));
+        this.txtCodigoMuni.setText(muni.getCodigoMuni());
+        this.txtNombre.setText(muni.getNombreMuni());
+        this.txtCodigoDepartamento.setText(String.valueOf(muni.getCodigoDep()));
         this.filaTablaSelect = filaSelect;
     }
     public void ocultarBotonEdit(){
@@ -234,14 +232,22 @@ public int filaTablaSelect;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Agregar_Departamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Agregar_Municipio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Agregar_Departamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Agregar_Municipio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Agregar_Departamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Agregar_Municipio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Agregar_Departamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Agregar_Municipio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -254,7 +260,7 @@ public int filaTablaSelect;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Agregar_Departamento().setVisible(true);
+                new Agregar_Municipio().setVisible(true);
             }
         });
     }
@@ -268,8 +274,8 @@ public int filaTablaSelect;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtCodigoDep;
-    private javax.swing.JTextField txtCodigoRegion;
+    private javax.swing.JTextField txtCodigoDepartamento;
+    private javax.swing.JTextField txtCodigoMuni;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
