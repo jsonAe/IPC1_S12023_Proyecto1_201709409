@@ -11,12 +11,14 @@ package beans;
 public class Region {
     private String codigo;
     private String nombre;
-    private float precio;
+    private double precioEspecial;
+    private double precioEstandar;
     
-    public Region(String codigo,String nombre,float precio){
+    public Region(String codigo,String nombre,double precioEspecial,double precioEstandar){
         this.codigo = codigo;
         this.nombre = nombre;
-        this.precio = precio;
+        this.precioEspecial = precioEspecial;
+        this.precioEstandar = precioEstandar;
     }
     
     public void setCodigo(String codigo){
@@ -25,8 +27,11 @@ public class Region {
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
-    public void setPrecio(float precio){
-        this.precio = precio;
+    public void setPrecioEspecial(double precioEspecial){
+        this.precioEspecial = precioEspecial;
+    }
+    public void setPrecioEstandar(double precioEstandar){
+        this.precioEstandar = precioEstandar;
     }
     
     public String getCodigo(){
@@ -35,8 +40,11 @@ public class Region {
     public String getNombre(){
         return this.nombre;
     }
-    public float getPrecio(){
-        return this.precio;
+    public double getPrecioEspecial(){
+        return this.precioEspecial;
+    }
+    public double getPrecioEstandar(){
+        return this.precioEstandar;
     }
     
     
