@@ -25,7 +25,7 @@ public class Municipio {
     public void setNombreMuni(String nombreMuni){
         this.nombreMuni = nombreMuni;
     }
-    public void setCodigoRegion(String codigoDep){
+    public void setCodigoDep(String codigoDep){
         this.codigoDep = codigoDep;
     }
     

@@ -36,6 +36,8 @@
               <Component id="btnGestionarRegiones" min="-2" pref="148" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnGestionarDep" min="-2" pref="148" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="btnGestionarDep1" min="-2" pref="148" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -51,6 +53,7 @@
                   <Component id="jButton1" alignment="3" min="-2" pref="146" max="-2" attributes="0"/>
                   <Component id="btnGestionarRegiones" alignment="3" min="-2" pref="146" max="-2" attributes="0"/>
                   <Component id="btnGestionarDep" alignment="3" min="-2" pref="146" max="-2" attributes="0"/>
+                  <Component id="btnGestionarDep1" alignment="3" min="-2" pref="146" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="308" max="32767" attributes="0"/>
           </Group>
@@ -115,6 +118,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Gestionar usuarios"/>
       </Properties>
       <Events>
@@ -123,6 +129,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnGestionarRegiones">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Gestionar regiones"/>
       </Properties>
       <Events>
@@ -131,10 +140,24 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnGestionarDep">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Gestionar Departamentos"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGestionarDepActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnGestionarDep1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="0" red="cc" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Gestionar municipios"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGestionarDep1ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

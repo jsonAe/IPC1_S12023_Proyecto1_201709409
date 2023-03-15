@@ -32,6 +32,7 @@ public class Administrador_Inicio extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btnGestionarRegiones = new javax.swing.JButton();
         btnGestionarDep = new javax.swing.JButton();
+        btnGestionarDep1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +68,7 @@ public class Administrador_Inicio extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(255, 153, 0));
         jButton1.setText("Gestionar usuarios");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +76,7 @@ public class Administrador_Inicio extends javax.swing.JFrame {
             }
         });
 
+        btnGestionarRegiones.setBackground(new java.awt.Color(0, 204, 204));
         btnGestionarRegiones.setText("Gestionar regiones");
         btnGestionarRegiones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,10 +84,19 @@ public class Administrador_Inicio extends javax.swing.JFrame {
             }
         });
 
+        btnGestionarDep.setBackground(new java.awt.Color(255, 255, 0));
         btnGestionarDep.setText("Gestionar Departamentos");
         btnGestionarDep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGestionarDepActionPerformed(evt);
+            }
+        });
+
+        btnGestionarDep1.setBackground(new java.awt.Color(204, 0, 204));
+        btnGestionarDep1.setText("Gestionar municipios");
+        btnGestionarDep1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarDep1ActionPerformed(evt);
             }
         });
 
@@ -104,6 +116,8 @@ public class Administrador_Inicio extends javax.swing.JFrame {
                 .addComponent(btnGestionarRegiones, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnGestionarDep, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnGestionarDep1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -116,7 +130,8 @@ public class Administrador_Inicio extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGestionarRegiones, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGestionarDep, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnGestionarDep, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGestionarDep1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 308, Short.MAX_VALUE))
         );
 
@@ -152,6 +167,13 @@ public class Administrador_Inicio extends javax.swing.JFrame {
         gestionDep.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnGestionarDepActionPerformed
+
+    private void btnGestionarDep1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarDep1ActionPerformed
+        // TODO add your handling code here:
+        Gestion_Municipios gestionMuni = new Gestion_Municipios();
+        gestionMuni.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnGestionarDep1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,6 +213,7 @@ public class Administrador_Inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnGestionarDep;
+    private javax.swing.JButton btnGestionarDep1;
     private javax.swing.JButton btnGestionarRegiones;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
