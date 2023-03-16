@@ -142,11 +142,15 @@ public class Login extends javax.swing.JFrame {
 
     private void jBtnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIniciarSesionActionPerformed
         // TODO add your handling code here:
-        if(Atenticacion.getInstancia().autenticarUsuario(jTxtUsuario.getText(), jTxtPassword.getText()) == true){
-            
-            
-            Administrador_Inicio vistaAdmin = new Administrador_Inicio();
-            vistaAdmin.setVisible(true);
+        String strRol =Atenticacion.getInstancia().autenticarUsuario(jTxtUsuario.getText(), jTxtPassword.getText());
+        if(!strRol.equals("")){
+            if(strRol.equals("Administrador")){
+                Administrador_Inicio vistaAdmin = new Administrador_Inicio();
+                vistaAdmin.setVisible(true);
+            }else{
+                Usuario_Inicio vistaUser = new Usuario_Inicio();
+                vistaUser.setVisible(true);   
+            }
             jLblMensajeError.setVisible(false);
             dispose();
         }else{

@@ -18,13 +18,13 @@ public class Atenticacion {
         return instancia;
     }
     
-    public boolean autenticarUsuario(String correo, String pass){
+    public String autenticarUsuario(String correo, String pass){
         for(Usuario user :RegistroUsuario.getInstancia().obtenerListaUsuarios()) {
             if(user.getCorreo().equals(correo) && user.getPassword().equals(pass)){
-                return true;
+                return user.getRol();
             }
         }
-        return false;
+        return "";
     }
     
     
